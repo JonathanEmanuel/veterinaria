@@ -35,7 +35,7 @@
             $this->estado = "Desconectado";
         }
 
-        // Ejecuta una consulta SQL. Espera recibir un array asociativos como parametros
+        // Ejecuta una consulta SQL para Guardar datos, actualizar, eliminar. Espera recibir un array asociativos como parametros
         public function ejecutar($parametros=""){
             try {
                 if( is_array($parametros)){

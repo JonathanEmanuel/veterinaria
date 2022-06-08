@@ -1,4 +1,7 @@
 <?php
+    require_once('app/model/Usuario.php');
+    // Conectarme a la Base de Datos
+    $usuario = new Usuario();
 
     if(  !isset( $_POST['email'] ) && !isset($_POST['password']) ) {
         echo "Datos ivalido";
@@ -8,10 +11,9 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $email_system = 'admin@gmail.com';
-    $pass_system = '123';
+    $respuesta = $usuario->loguear($email, $password);
 
-    if( $email == $email_system && $password == $pass_system ){
+    if( count($respuesta) > 0 ){
         echo "Log Ok";
         // llamar a una funcion para el login
         session_start();
